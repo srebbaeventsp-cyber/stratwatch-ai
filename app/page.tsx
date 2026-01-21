@@ -2,11 +2,13 @@ import { ConfidenceGauge } from '../components/ConfidenceGauge';
 import { checkExportIntegrity } from '../lib/actions/integrity';
 import { extractNarrativeData } from '../lib/actions/extractor';
 import { analyzeNarratives } from '../lib/actions/nlp';
+import { analyzeSentiment } from '../lib/actions/sentiment';
 
 export default async function Dashboard() {
   const integrity = await checkExportIntegrity();
   const extraction = await extractNarrativeData();
   const nlp = await analyzeNarratives();
+  const sementic = await analyzeSentiment();
 
   return (
     <main className="min-h-screen bg-black text-white p-8 font-sans">
@@ -26,17 +28,19 @@ export default async function Dashboard() {
         <div className="p-4 bg-gray-900/50 border border-gray-800">
           <h3 className="text-xs font-bold uppercase text-blue-500">Module 01 - Ingestion</h3>
           <p className="mt-2 font-mono text-sm text-green-500 font-bold"> \</p>
-          <p className="text-[10px] text-gray-600 mt-2 uppercase">HIVE SYNC: PROD_20260111</p>
+          <p className="text-[10px] text-gray-600 mt-2 uppercase text-white font-black bg-purple-900/40 px-1 inline-block">
+             CLIMAT : \
+          </p>
         </div>
 
         <div className="p-4 bg-gray-900/50 border border-gray-800">
-          <h3 className="text-xs font-bold uppercase text-purple-500">Module 15 - Moteur Narratif</h3>
-          <p className="mt-2 font-mono text-sm text-white"> \ FICHIERS ANALYSÉS</p>
-          <p className="text-[10px] text-gray-400 mt-2 font-mono uppercase">HIT RATE: \ INDICATEURS</p>
+          <h3 className="text-xs font-bold uppercase text-purple-500">Module 15 - Narratifs</h3>
+          <p className="mt-2 font-mono text-sm text-white uppercase font-bold"> \ Documents</p>
+          <p className="text-[10px] text-gray-400 mt-2 font-mono uppercase">Hits : \ | Hostile : \</p>
         </div>
 
         <div className="p-4 bg-gray-900/50 border border-gray-800">
-          <h3 className="text-xs font-bold uppercase text-orange-500">Alerte Stratégique</h3>
+          <h3 className="text-xs font-bold uppercase text-orange-500 font-black">Analyse Lexicale</h3>
           <div className="mt-2 space-y-1">
             {nlp.narratives.map(n => (
               <div key={n.keyword} className="flex justify-between text-[10px] font-mono border-b border-gray-800 pb-1">
