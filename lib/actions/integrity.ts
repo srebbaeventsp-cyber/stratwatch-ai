@@ -4,11 +4,9 @@ import path from 'path';
 import CryptoJS from 'crypto-js';
 
 export async function checkExportIntegrity() {
-    // Ciblage des fichiers d'export à la racine
     const dataPath = path.join(process.cwd(), 'STRATWATCH_PROD_EXPORT_20260111_030900.zip');
     const hashPath = path.join(process.cwd(), 'STRATWATCH_PROD_EXPORT_20260111_030900.zip.sha256');
 
-    // Vérification de l'existence des preuves physiques
     if (!fs.existsSync(dataPath) || !fs.existsSync(hashPath)) {
         return { score: 0, level: 'hypothèse', status: 'FICHIERS_MANQUANTS', hash: 'N/A' };
     }
@@ -16,8 +14,6 @@ export async function checkExportIntegrity() {
     try {
         const fileBuffer = fs.readFileSync(dataPath);
         const expectedHash = fs.readFileSync(hashPath, 'utf8').trim().split(' ')[0];
-        
-        // Calcul déterministe SHA256
         const actualHash = CryptoJS.SHA256(CryptoJS.lib.WordArray.create(fileBuffer)).toString();
 
         const isValid = actualHash.toLowerCase() === expectedHash.toLowerCase();

@@ -12,21 +12,19 @@ export default async function Dashboard() {
           <p className="text-gray-500 text-sm">Usine de Vérité Stratégique | Expert Senior</p>
         </div>
         <div className="text-right font-mono text-[10px] text-gray-600 uppercase">
-          Ancrage : \...
+          Hash : \...
         </div>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Module 22 & 04 */}
         <ConfidenceGauge score={integrity.score} level={integrity.level as any} />
         
-        {/* Module 01 */}
         <div className="p-4 bg-gray-900/50 border border-gray-800">
           <h3 className="text-xs font-bold uppercase text-gray-400">Module 01 - Ingestion HIVE</h3>
           <p className="mt-2 font-mono text-sm \">
              STATUS: \
           </p>
-          <p className="text-[10px] text-gray-600 mt-2 uppercase">Source: STRATWATCH_PROD_EXPORT_20260111_030900.zip</p>
+          <p className="text-[10px] text-gray-600 mt-2 uppercase">Source: STRATWATCH_PROD_EXPORT...zip</p>
         </div>
       </div>
     </main>
