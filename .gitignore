@@ -7,3 +7,5 @@ build/
 .dockerignore
 Dockerfile
 deploy-cloud.ps1
+.vercel
+.env*.local
