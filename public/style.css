@@ -1,0 +1,81 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-main: #0A0B0E;
+  --bg-surface: #15171C;
+  --text-main: #D6D2CC;
+  --text-muted: #9A948C;
+  --border-soft: #1F2128;
+  --color-amber: #8A6A2F;
+  --color-red: #7A1E1E;
+  --color-green: #10B981;
+  --color-blue: #3B82F6;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  overflow: hidden; /* Le scroll est géré par les vues internes */
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* Grille Tactique de Fond */
+.situation-grid {
+  background-image: 
+    linear-gradient(rgba(111, 106, 99, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(111, 106, 99, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Scrollbar Tactique (Fine et Sombre) */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: #1F2128;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-amber);
+}
+
+/* Typographie Militaire */
+.label-caps {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6F6A63;
+}
+
+/* Animation Radar (Scanline) */
+@keyframes scanline {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(1000%); opacity: 0; }
+}
+
+.animate-scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to bottom, transparent, rgba(138, 106, 47, 0.1), transparent);
+  animation: scanline 8s linear infinite;
+  pointer-events: none;
+}
+
+/* Utilitaires d'Impression (Pour les Rapports PDF) */
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; color: black; }
+  .situation-grid { background: none; }
+}

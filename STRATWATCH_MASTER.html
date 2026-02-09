@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html><html lang='fr'><head><meta charset='UTF-8'><title>STRATWATCH /// COMMAND CENTER</title>
+<style>
+    :root { --bg: #050608; --gold: #c5a458; --red: #d12c2c; }
+    body { background: var(--bg); color: #aebbc9; font-family: 'Rajdhani', sans-serif; margin: 0; overflow: hidden; }
+    header { height: 50px; border-bottom: 1px solid #1f232a; display: flex; align-items: center; padding: 0 20px; justify-content: space-between; }
+    .gold { color: var(--gold); font-weight: bold; }
+    .layout { display: flex; height: calc(100vh - 50px); }
+    .sidebar { width: 260px; border-right: 1px solid #1f232a; padding: 20px; }
+    .content { flex: 1; padding: 20px; background: #080a0c; display: flex; flex-direction: column; gap: 20px; }
+    .kpi { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+    .card { background: #0b0d10; border: 1px solid #1f232a; padding: 15px; }
+    #tactical-map { flex: 1; background: radial-gradient(circle, #11141a 0%, #050608 100%); border: 1px solid #1f232a; position: relative; }
+</style></head><body>
+<header><div>STRATWATCH <span class='gold'>AI</span></div><div class='gold'>ZONE: MAGHREB-SAHEL</div></header>
+<div class='layout'><div class='sidebar'><h3>C2 - PILOTAGE</h3><p class='gold'>VUE MONDIALE</p></div>
+<div class='content'><div class='kpi'><div class='card'>SIGNAUX<br><span class='gold' style='font-size:32px;'>00000</span></div><div class='card' style='border-color:red;'>ALERTES<br><span style='color:red; font-size:32px;'>00</span></div></div>
+<div id='tactical-map'></div></div></div></body></html>
