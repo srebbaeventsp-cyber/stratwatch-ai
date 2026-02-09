@@ -28,3 +28,13 @@ yarn-error.log*
 
 # Vercel
 .vercel
+# --- SECURITY & CLEANUP (ADDED POST-MERGE) ---
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.sha256
+*_ARCHIVE_*
+*_EXPORT_*
+*_BACKUP_*
