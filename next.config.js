@@ -1,13 +1,11 @@
-﻿/** @type {import('next').NextConfig} */
+/** @type {import('next').NextConfig} */
+const path = require('path');
+
 const nextConfig = {
-  swcMinify: false, // Désactive le minifieur Rust
-  experimental: {
-    forceSwcTransforms: false, // Force l'usage de Babel
-  },
-  // Sécurité mémoire pour le build
-  onDemandEntries: {
-    maxInactiveAge: 25 * 1000,
-    pagesBufferLength: 2,
+  webpack: (config) => {
+    // Force l'alias @ vers la racine du projet pour le mode Babel
+    config.resolve.alias['@'] = path.resolve(__dirname);
+    return config;
   },
 };
 

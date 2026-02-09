@@ -1,4 +1,4 @@
-﻿import { STRATWATCH_MODULES } from "@/lib/constants";
+import { STRATWATCH_MODULES } from "../../lib/constants";
 
 export default function Dashboard() {
   const categories = ["CORE", "CONTEXTUAL", "SENSITIVE"];
